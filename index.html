@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Global Commodity Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#3498db">
+    <meta name="description" content="Real-time market price information for agricultural products">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1><i class="fas fa-globe"></i> Global Commodity Tracker</h1>
+            <p>Real-time global commodity prices for informed trading decisions</p>
+        </div>
+    </header>
+    
+    <main>
+        <div class="controls">
+            <div class="search-section">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="search-input" placeholder="Search products...">
+                </div>
+            </div>
+            
+            <div class="filters">
+                <div class="filter-group">
+                    <label for="crop-filter">Commodity Type:</label>
+                    <select id="crop-filter">
+                        <option value="">All Commodities</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="region-filter">Exchange Location:</label>
+                    <select id="region-filter">
+                        <option value="">All Locations</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="sort-by">Sort By:</label>
+                    <select id="sort-by">
+                        <option value="date">Date</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="name">Name</option>
+                    </select>
+                </div>
+                
+
+                
+                
+            </div>
+        </div>
+
+        <div class="stats-bar">
+            <div class="stat-item">
+                <i class="fas fa-chart-line"></i>
+                <span id="total-products">0</span>
+                <label>Commodities</label>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span id="total-regions">0</span>
+                <label>Exchanges</label>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-calendar"></i>
+                <span id="last-updated">-</span>
+                <label>Last Updated</label>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-database"></i>
+                <span id="data-source">-</span>
+                <label>Data Source</label>
+            </div>
+
+        </div>
+
+        <div class="price-board">
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                                                    <th>Commodity</th>
+                        <th>Price (GHS)</th>
+                        <th>Exchange Location</th>
+                        <th>Last Updated</th>
+                        <th>Trend</th>
+                        <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="price-table-body">
+                        <!-- Data will be populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+            
+            <div id="loading" class="loading hidden">
+                <div class="spinner"></div>
+                <p>Loading price data...</p>
+            </div>
+            
+            <div id="error" class="error hidden">
+                <i class="fas fa-exclamation-triangle"></i>
+                <h3>Unable to Load Data</h3>
+                <p id="error-message">Please check your connection and try again.</p>
+                <button id="retry-btn" class="btn btn-primary">Retry</button>
+            </div>
+            
+            <div id="no-data" class="no-data hidden">
+                <i class="fas fa-info-circle"></i>
+                <h3>No Data Available</h3>
+                <p>Try adjusting your filters or search terms.</p>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>&copy; 2025 Global Commodity Tracker. Powered by API Ninjas.</p>
+            <div class="data-sources">
+                <small>
+                    <strong>Data Source:</strong> 
+                    <span>Real-time commodity prices from global exchanges</span>
+                </small>
+            </div>
+        </div>
+    </main>
+    
+    <script src="script.js"></script>
+</body>
+</html>
